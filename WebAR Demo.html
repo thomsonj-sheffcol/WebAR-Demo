@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://demo.neo-pangea.com/webar/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1"><title>WebAR Demo</title><script src="./WebAR Demo_files/three.js.download"></script><script src="./WebAR Demo_files/ThreeIEVideoTexture.js.download"></script><script src="./WebAR Demo_files/ColladaLoader.js.download"></script><script src="./WebAR Demo_files/artoolkit.min.js.download"></script><script src="./WebAR Demo_files/artoolkit.api.js.download"></script><script src="./WebAR Demo_files/threex-artoolkitsource.js.download"></script><script src="./WebAR Demo_files/threex-artoolkitcontext.js.download"></script><script src="./WebAR Demo_files/threex-arbasecontrols.js.download"></script><script src="./WebAR Demo_files/threex-armarkercontrols.js.download"></script><script src="./WebAR Demo_files/threex-arsmoothedcontrols.js.download"></script><script>THREEx.ArToolkitContext.baseURL = '../';</script><!--<base href="https://demo.neo-pangea.com/webar/">--><base href="."><style type="text/css">svg:not(:root).svg-inline--fa {
+  overflow: visible; }
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em; }
+  .svg-inline--fa.fa-lg {
+    vertical-align: -.225em; }
+  .svg-inline--fa.fa-w-1 {
+    width: 0.0625em; }
+  .svg-inline--fa.fa-w-2 {
+    width: 0.125em; }
+  .svg-inline--fa.fa-w-3 {
+    width: 0.1875em; }
+  .svg-inline--fa.fa-w-4 {
+    width: 0.25em; }
+  .svg-inline--fa.fa-w-5 {
+    width: 0.3125em; }
+  .svg-inline--fa.fa-w-6 {
+    width: 0.375em; }
+  .svg-inline--fa.fa-w-7 {
+    width: 0.4375em; }
+  .svg-inline--fa.fa-w-8 {
+    width: 0.5em; }
+  .svg-inline--fa.fa-w-9 {
+    width: 0.5625em; }
+  .svg-inline--fa.fa-w-10 {
+    width: 0.625em; }
+  .svg-inline--fa.fa-w-11 {
+    width: 0.6875em; }
+  .svg-inline--fa.fa-w-12 {
+    width: 0.75em; }
+  .svg-inline--fa.fa-w-13 {
+    width: 0.8125em; }
+  .svg-inline--fa.fa-w-14 {
+    width: 0.875em; }
+  .svg-inline--fa.fa-w-15 {
+    width: 0.9375em; }
+  .svg-inline--fa.fa-w-16 {
+    width: 1em; }
+  .svg-inline--fa.fa-w-17 {
+    width: 1.0625em; }
+  .svg-inline--fa.fa-w-18 {
+    width: 1.125em; }
+  .svg-inline--fa.fa-w-19 {
+    width: 1.1875em; }
+  .svg-inline--fa.fa-w-20 {
+    width: 1.25em; }
+  .svg-inline--fa.fa-pull-left {
+    margin-right: .3em;
+    width: auto; }
+  .svg-inline--fa.fa-pull-right {
+    margin-left: .3em;
+    width: auto; }
+  .svg-inline--fa.fa-border {
+    height: 1.5em; }
+  .svg-inline--fa.fa-li {
+    width: 2em; }
+  .svg-inline--fa.fa-fw {
+    width: 1.25em; }
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -.125em;
+  width: 1em; }
+  .fa-layers svg.svg-inline--fa {
+    -webkit-transform-origin: center center;
+            transform-origin: center center; }
+
+.fa-layers-text, .fa-layers-counter {
+  display: inline-block;
+  position: absolute;
+  text-align: center; }
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center; }
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: .25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right; }
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right; }
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left; }
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right; }
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left; }
+
+.fa-lg {
+  font-size: 1.33333em;
+  line-height: 0.75em;
+  vertical-align: -.0667em; }
+
+.fa-xs {
+  font-size: .75em; }
+
+.fa-sm {
+  font-size: .875em; }
+
+.fa-1x {
+  font-size: 1em; }
+
+.fa-2x {
+  font-size: 2em; }
+
+.fa-3x {
+  font-size: 3em; }
+
+.fa-4x {
+  font-size: 4em; }
+
+.fa-5x {
+  font-size: 5em; }
+
+.fa-6x {
+  font-size: 6em; }
+
+.fa-7x {
+  font-size: 7em; }
+
+.fa-8x {
+  font-size: 8em; }
+
+.fa-9x {
+  font-size: 9em; }
+
+.fa-10x {
+  font-size: 10em; }
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em; }
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0; }
+  .fa-ul > li {
+    position: relative; }
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit; }
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: .1em;
+  padding: .2em .25em .15em; }
+
+.fa-pull-left {
+  float: left; }
+
+.fa-pull-right {
+  float: right; }
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: .3em; }
+
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: .3em; }
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear; }
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8); }
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg); }
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg); }
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg); }
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1); }
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1); }
+
+.fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1); }
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  -webkit-filter: none;
+          filter: none; }
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em; }
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em; }
+
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em; }
+
+.fa-inverse {
+  color: #fff; }
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+</style><link href="./WebAR Demo_files/app.1a002a76434bea31e49e61dbed16bf14.css" rel="stylesheet"></head><body style="margin: 0; overflow: hidden;"><div id="app"><!----> <div data-v-2fafdbaf="" class="root"><img data-v-2fafdbaf="" src="./WebAR Demo_files/logo-neo-pangea@1x.png" srcset="static/images/logo-neo-pangea@1x.png 1x,static/images/logo-neo-pangea@2x.png 2x,static/images/logo-neo-pangea@3x.png 3x" alt="Neo-Pangea"></div> <div data-v-73cba93c="" class="root">
+    WebAR Demo
+</div> <div data-v-65042bb3="" id="webar" class="root"><!----> <!----><canvas width="2048" height="2048" style="width: 1920px; height: 1440px; overflow: hidden; margin: -280px 0px 0px; padding: 0px;"></canvas></div> <div data-v-fd32ce38="" class="root"><a data-v-fd32ce38="" href="https://demo.neo-pangea.com/webar/static/markers/neo-ar-demo-markers.pdf" target="_blank" title="Print WebAR Markers (PDF)"><svg data-v-fd32ce38="" aria-hidden="true" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-file-pdf fa-w-12 fa-fw fa-sm"><path data-v-fd32ce38="" fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z" class=""></path></svg> Print WebAR Markers
+    </a></div> <div data-v-834d3a90="" id="spinner" class="root"><label data-v-834d3a90="">Scanning for AR Marker</label> <div data-v-834d3a90="" class="rect_1"></div> <div data-v-834d3a90="" class="rect_2"></div> <div data-v-834d3a90="" class="rect_3"></div></div></div><script type="text/javascript" src="./WebAR Demo_files/manifest.a5f18cbc5fe237dd235d.js.download"></script><script type="text/javascript" src="./WebAR Demo_files/vendor.872f40fc86423d2e7a06.js.download"></script><script type="text/javascript" src="./WebAR Demo_files/app.96c564819e118ecf25b8.js.download"></script><span class="th-RW4GC-installed"></span><div id="voicein_container" style="display: none;"><div id="voicein_voicebox_container"><div id="voicein_voicebox"></div></div><div id="voicein_popup_container" class="voicein_tr"><div id="voicein_popup">
+    <div id="voicein_settings">
+      <img src="chrome-extension://pjnefijmagpdjfhhkpljicbbpicelgko/images/icon144_settings.png" style="width: 28px;">
+      <span id="voicein_lang">en-GB</span>
+    </div>
+    <div id="voicein_upgrade" class="voicein_menu_option">
+      <a href="https://dictanote.co/voicein/plus/" target="_blank" title="Voice In Options">
+        <svg style="height: 13px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bolt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-bolt fa-w-10 fa-2x"><path fill="currentColor" d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z" class=""></path></svg>
+        <span>&nbsp; Upgrade</span>
+      </a>
+    </div>
+    <div id="voicein_spacebox_container">
+      <div><textarea id="voicein_spacebox"></textarea></div>
+      <p style="background: black; margin:0; padding: 0; line-height: 20px; font-size: 12px;">
+        <a href="https://demo.neo-pangea.com/webar/#" style="color: white; padding-left: 5px; text-decoration: none;" id="voicein_copy_spacebox">Copy</a>
+        <a href="https://demo.neo-pangea.com/webar/#" style="color: white; padding-left: 10px; text-decoration: none;" id="voicein_cut_spacebox">Cut</a>
+        <span style="float:right; color: gray"><i>Dictation Box&nbsp;</i></span>
+      </p>
+    </div>
+    <div id="voicein_help">
+      <span class="voicein_close">x</span>
+      <div id="voicein_help_message"></div>
+    </div>
+    <div id="voicein_error">
+      <span class="voicein_close">x</span>
+      <div id="voicein_error_message"></div>
+    </div>
+    <div id="voicein_ls">
+    </div>
+    </div></div><div id="voicein_modal">
+    <div class="voicein_modal">
+      <div class="voicein_modal_content">
+        <span class="voicein_modal_close">×</span>
+        <h1>Voice In Settings</h1>
+        <div class="voicein_modal_section">
+          <h4>Select your dictation language</h4>
+          <select class="form-control" id="select_language"><option value="af-ZA">Afrikaans (Suid-Afrika)</option><option value="am-ET">አማርኛ (ኢትዮጵያ)</option><option value="hy-AM">Հայ (Հայաստան)</option><option value="az-AZ">Azərbaycan (Azərbaycan)</option><option value="id-ID">Bahasa Indonesia (Indonesia)</option><option value="ms-MY">Bahasa Melayu (Malaysia)</option><option value="bn-BD">বাংলা (বাংলাদেশ)</option><option value="bn-IN">বাংলা (ভারত)</option><option value="ca-ES">Català (Espanya)</option><option value="cs-CZ">Čeština (Česká republika)</option><option value="da-DK">Dansk (Danmark)</option><option value="de-DE">Deutsch (Deutschland)</option><option value="en-AU">English (Australia)</option><option value="en-CA">English (Canada)</option><option value="en-GH">English (Ghana)</option><option value="en-GB">English (Great Britain)</option><option value="en-IN">English (India)</option><option value="en-IE">English (Ireland)</option><option value="en-KE">English (Kenya)</option><option value="en-NZ">English (New Zealand)</option><option value="en-NG">English (Nigeria)</option><option value="en-PH">English (Philippines)</option><option value="en-ZA">English (South Africa)</option><option value="en-TZ">English (Tanzania)</option><option value="en-US">English (United States)</option><option value="es-AR">Español (Argentina)</option><option value="es-BO">Español (Bolivia)</option><option value="es-CL">Español (Chile)</option><option value="es-CO">Español (Colombia)</option><option value="es-CR">Español (Costa Rica)</option><option value="es-EC">Español (Ecuador)</option><option value="es-SV">Español (El Salvador)</option><option value="es-ES">Español (España)</option><option value="es-US">Español (Estados Unidos)</option><option value="es-GT">Español (Guatemala)</option><option value="es-HN">Español (Honduras)</option><option value="es-MX">Español (México)</option><option value="es-NI">Español (Nicaragua)</option><option value="es-PA">Español (Panamá)</option><option value="es-PY">Español (Paraguay)</option><option value="es-PE">Español (Perú)</option><option value="es-PR">Español (Puerto Rico)</option><option value="es-DO">Español (República Dominicana)</option><option value="es-UY">Español (Uruguay)</option><option value="es-VE">Español (Venezuela)</option><option value="eu-ES">Euskara (Espainia)</option><option value="fil-PH">Filipino (Pilipinas)</option><option value="fr-CA">Français (Canada)</option><option value="fr-FR">Français (France)</option><option value="gl-ES">Galego (España)</option><option value="ka-GE">ქართული (საქართველო)</option><option value="gu-IN">ગુજરાતી (ભારત)</option><option value="hr-HR">Hrvatski (Hrvatska)</option><option value="zu-ZA">IsiZulu (Ningizimu Afrika)</option><option value="is-IS">Íslenska (Ísland)</option><option value="it-IT">Italiano (Italia)</option><option value="jv-ID">Jawa (Indonesia)</option><option value="kn-IN">ಕನ್ನಡ (ಭಾರತ)</option><option value="km-KH">ភាសាខ្មែរ (កម្ពុជា)</option><option value="lo-LA">ລາວ (ລາວ)</option><option value="lv-LV">Latviešu (latviešu)</option><option value="lt-LT">Lietuvių (Lietuva)</option><option value="hu-HU">Magyar (Magyarország)</option><option value="ml-IN">മലയാളം (ഇന്ത്യ)</option><option value="mr-IN">मराठी (भारत)</option><option value="nl-NL">Nederlands (Nederland)</option><option value="ne-NP">नेपाली (नेपाल)</option><option value="nb-NO">Norsk bokmål (Norge)</option><option value="pl-PL">Polski (Polska)</option><option value="pt-BR">Português (Brasil)</option><option value="pt-PT">Português (Portugal)</option><option value="ro-RO">Română (România)</option><option value="si-LK">සිංහල (ශ්රී ලංකාව)</option><option value="sk-SK">Slovenčina (Slovensko)</option><option value="sl-SI">Slovenščina (Slovenija)</option><option value="su-ID">Urang (Indonesia)</option><option value="sw-TZ">Swahili (Tanzania)</option><option value="sw-KE">Swahili (Kenya)</option><option value="fi-FI">Suomi (Suomi)</option><option value="sv-SE">Svenska (Sverige)</option><option value="ta-IN">தமிழ் (இந்தியா)</option><option value="ta-SG">தமிழ் (சிங்கப்பூர்)</option><option value="ta-LK">தமிழ் (இலங்கை)</option><option value="ta-MY">தமிழ் (மலேசியா)</option><option value="te-IN">తెలుగు (భారతదేశం)</option><option value="vi-VN">Tiếng Việt (Việt Nam)</option><option value="tr-TR">Türkçe (Türkiye)</option><option value="ur-PK">اردو (پاکستان)</option><option value="ur-IN">اردو (بھارت)</option><option value="el-GR">Ελληνικά (Ελλάδα)</option><option value="bg-BG">Български (България)</option><option value="ru-RU">Русский (Россия)</option><option value="sr-RS">Српски (Србија)</option><option value="uk-UA">Українська (Україна)</option><option value="he-IL">עברית (ישראל)</option><option value="ar-IL">العربية (إسرائيل)</option><option value="ar-JO">العربية (الأردن)</option><option value="ar-AE">العربية (الإمارات)</option><option value="ar-BH">العربية (البحرين)</option><option value="ar-DZ">العربية (الجزائر)</option><option value="ar-SA">العربية (السعودية)</option><option value="ar-IQ">العربية (العراق)</option><option value="ar-KW">العربية (الكويت)</option><option value="ar-MA">العربية (المغرب)</option><option value="ar-TN">العربية (تونس)</option><option value="ar-OM">العربية (عُمان)</option><option value="ar-PS">العربية (فلسطين)</option><option value="ar-QA">العربية (قطر)</option><option value="ar-LB">العربية (لبنان)</option><option value="ar-EG">العربية (مصر)</option><option value="fa-IR">فارسی (ایران)</option><option value="hi-IN">हिन्दी (भारत)</option><option value="th-TH">ไทย (ประเทศไทย)</option><option value="ko-KR">한국어 (대한민국)</option><option value="cmn-Hant-TW">國語 (台灣)</option><option value="yue-Hant-HK">廣東話 (香港)</option><option value="ja-JP">日本語（日本）</option><option value="cmn-Hans-HK">普通話 (香港)</option><option value="cmn-Hans-CN">普通话 (中国大陆)</option></select>
+          <p style="font-size: 10px; margin-top: 10px;">If you change the language, make sure you restart Voice In
+        </p></div>
+        <div class="voicein_modal_section">
+          <h4>Enable Advanced Mode <span class="plus-only">🔒 (only for <a target="_blank" href="https://dictanote.co/voicein/plus/">plus users</a>)</span></h4>
+          <div><input type="checkbox" id="voicein_pm" disabled=""><label for="#voicein_pm">Enable advanced mode for this domain</label></div>
+        </div>
+        <div class="voicein_modal_section">
+          <h4>Enable Dictation Box <span class="plus-only">🔒 (only for <a target="_blank" href="https://dictanote.co/voicein/plus/">plus users</a>)</span></h4>
+          <div><input type="checkbox" id="voicein_db" disabled=""><label for="#voicein_db">Enable dictation box for this domain</label></div>
+        </div>
+        <div class="voicein_modal_section">
+          <h4>Keyboard Shortcut</h4>
+          <div class="voicein_ks" id="voicein_current_ks">Ctrl+Shift+9</div>
+        </div>
+        <div class="voicein_modal_section">
+          <h4>Voice Commands</h4>
+          <p>Find all available voice commands for your language <a href="https://dictanote.co/voicein/voicecommands/" target="_blank">here</a></p>
+        </div>
+        <div class="voicein_modal_section">
+          <p><a href="https://support.dictanote.co/hc/en-us/requests/new" target="_blank">Report An Issue</a> --
+             <a href="chrome-extension://pjnefijmagpdjfhhkpljicbbpicelgko/settings.html" target="_blank">Voice In Options</a> --
+             <a href="https://support.dictanote.co/hc/en-us/sections/360006696291-Voice-In" target="_blank">Help Center</a></p>
+        </div>
+      </div>
+    </div></div></div><video autoplay="" muted="" playsinline="" style="width: 1920px; height: 1440px; position: absolute; top: 0px; left: 0px; z-index: -2; margin-top: -280px; margin-left: 0px;"></video></body></html>
